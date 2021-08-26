@@ -17,8 +17,8 @@ class CreateClientesTable extends Migration
             $table->id();
             $table->string('codigo', 20);
             $table->string('nome', 150);
-            $table->string('email', 150)->unique();
-            $table->string('cpf', 11)->unique();
+            $table->string('email', 150);
+            $table->string('cpf', 11);
             $table->enum('sexo', ['M', 'F']);
             $table->timestamps();
         });
