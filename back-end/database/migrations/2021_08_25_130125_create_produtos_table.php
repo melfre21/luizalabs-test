@@ -18,7 +18,8 @@ class CreateProdutosTable extends Migration
             $table->string('codigo', 20);
             $table->string('nome', 20);
             $table->string('fabricacao', 20);
-            $table->string('tamanho', 20);
+            $table->string('tamanho', 150); // Como é generico sera criado um input tags
+            $table->text('descricao');
             $table->decimal('valor', 10,2);
             $table->timestamps();
         });
