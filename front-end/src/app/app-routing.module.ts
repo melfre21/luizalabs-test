@@ -4,6 +4,10 @@ import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
+  {
+    path: 'clientes',
+    loadChildren: () => import('./pages/cliente/cliente.module').then(m => m.ClienteModule)
+  },
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
