@@ -1,20 +1,12 @@
-<mat-toolbar color="primary">
-  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button> -->
-  <span>LUIZALABS-TEST</span>
-  <span class="example-spacer"></span>
-  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button> -->
-  <button mat-button [routerLink]="['/clientes']" routerLinkActive="router-link-active">
-    Clientes</button>
-  <button mat-button>Produtos</button>
-  <!-- <mat-menu #animals="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
-    <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
-  </mat-menu> -->
-</mat-toolbar>
+<header class="container-header">
+    <div class="d-flex justify-content-between bd-highlight mb-3">
+        <div class="p-2 bd-highlight logo">
+            <a [routerLink]="['/']">
+                <img src="assets/images/front-test-logo.png" alt="Praxio Test | Home">
+            </a>
+        </div>
+        <div *ngIf="mostrarBtnLogout" class="p-2 bd-highlight mt-2">
+            <a [routerLink]="['/logout']" routerLinkActive="router-link-active" class="btn btn-outline-secondary btn-sm btn-custom-rounded" >Logout</a>
+        </div>
+    </div>
+</header>
