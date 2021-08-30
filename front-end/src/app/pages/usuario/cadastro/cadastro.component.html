@@ -1,0 +1,132 @@
+<div class="container container-cadastro">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h1 class="title-forms mb-2">Cadastrar</h1>
+            <p class="subtitle-forms">Utilizando Reactive Forms</p>
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>Importante:</strong> Todos os campos são de preenchimento obrigatórios.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <span>Informações Pessoas</span>
+                        <div class="form-group row mb-3">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" placeholder="Nome/Razão Social"
+                                    formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required">Nome é obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" placeholder="CPF"
+                                    [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }" formControlName="cpf"
+                                    mask="000.000.000-00">
+                                <div *ngIf="submitted && f.cpf.errors" class="invalid-feedback">
+                                    <div *ngIf="f.cpf.errors.required">CPF é obrigatório.</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" placeholder="Telefone"
+                                    [ngClass]="{ 'is-invalid': submitted && f.telefone.errors }"
+                                    formControlName="telefone" mask="(00) 0000-0000||(00) 0 0000-0000">
+                                <div *ngIf="submitted && f.telefone.errors" class="invalid-feedback">
+                                    <div *ngIf="f.telefone.errors.required">Telefone é obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <div class="col-sm-12">
+                                <input type="email" class="form-control" placeholder="E-mail"
+                                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" formControlName="email">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">E-mail é obrigatório.</div>
+                                    <div *ngIf="f.email.errors.email">Informe um E-mail valido.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <input type="password" class="form-control" placeholder="Senha"
+                                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                                    formControlName="password">
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Senha é obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <span>Endereço</span>
+                        <div class="form-group row mb-3">
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="CEP"
+                                    [ngClass]="{ 'is-invalid': submitted && f.cep.errors }" formControlName="cep"
+                                    mask="00000-000" (blur)="buscaCep()">
+                                <div *ngIf="submitted && f.cep.errors" class="invalid-feedback">
+                                    <div *ngIf="f.cep.errors.required">CEP é obrigatório.</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" placeholder="Logradouro"
+                                    [ngClass]="{ 'is-invalid': submitted && f.logradouro.errors }"
+                                    formControlName="logradouro">
+                                <div *ngIf="submitted && f.logradouro.errors" class="invalid-feedback">
+                                    <div *ngIf="f.logradouro.errors.required">Logradouro é obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Numero"
+                                    [ngClass]="{ 'is-invalid': submitted && f.numero.errors }" formControlName="numero">
+                                <div *ngIf="submitted && f.numero.errors" class="invalid-feedback">
+                                    <div *ngIf="f.numero.errors.required">Número é obrigatório.</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" placeholder="Bairro"
+                                    [ngClass]="{ 'is-invalid': submitted && f.bairro.errors }" formControlName="bairro">
+                                <div *ngIf="submitted && f.bairro.errors" class="invalid-feedback">
+                                    <div *ngIf="f.bairro.errors.required">Bairro é obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" placeholder="UF"
+                                    [ngClass]="{ 'is-invalid': submitted && f.uf.errors }" formControlName="uf">
+                                <div *ngIf="submitted && f.uf.errors" class="invalid-feedback">
+                                    <div *ngIf="f.uf.errors.required">UF é obrigatório.</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Cidade"
+                                    [ngClass]="{ 'is-invalid': submitted && f.cidade.errors }" formControlName="cidade">
+                                <div *ngIf="submitted && f.cidade.errors" class="invalid-feedback">
+                                    <div *ngIf="f.cidade.errors.required">Cidade é obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mt-3 align-items-center">
+                    <div class="d-grid gap-2">
+                        <button class="btn-custom-rounded mt-2 mb-4 p-2 shadow-lg btn-form"
+                            type="submit">Cadastrar</button>
+                    </div>
+                </div>
+
+                <!-- <pre>
+                {{ formCadastro.errors json}}
+                </pre> -->
+            </form>
+            <div class="d-grid gap-2">
+                <a routerLink="/login" class="text-center text-decoration-none link-form">Já tem conta? Faça login</a>
+            </div>
+        </div>
+    </div>
+</div>
