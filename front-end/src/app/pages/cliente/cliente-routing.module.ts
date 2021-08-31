@@ -6,6 +6,7 @@ import { ListComponent } from './list/list.component';
 
 const clienteRoutes: Routes = [
   { path: '' , component : ClienteComponent, children: [
+    { path: '' , component : ListComponent },
     { path: 'list' , component : ListComponent },
     { path: 'add' , component : AddComponent }
   ]}

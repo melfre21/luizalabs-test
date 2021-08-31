@@ -1,12 +1,21 @@
-<header class="container-header">
-    <div class="d-flex justify-content-between bd-highlight mb-3">
-        <div class="p-2 bd-highlight logo">
-            <a [routerLink]="['/']">
-                <img src="assets/images/front-test-logo.png" alt="Praxio Test | Home">
-            </a>
-        </div>
-        <div *ngIf="mostrarBtnLogout" class="p-2 bd-highlight mt-2">
-            <a [routerLink]="['/logout']" routerLinkActive="router-link-active" class="btn btn-outline-secondary btn-sm btn-custom-rounded" >Logout</a>
-        </div>
-    </div>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+	<div class="container-fluid">
+		<a class="navbar-brand text-white" href="#">LuizaLabs-Test</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+			aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+      <div class="navbar-nav">
+          <a [routerLink]="['/clientes']" class="nav-item nav-link active text-white">Clientes</a>
+          <a [routerLink]="['/clientes']" class="nav-item nav-link text-white">Produtos</a>
+      </div>
+      <div class="navbar-nav">
+          <a href="https://www.linkedin.com/in/melfre-diego/" target="_blank" class="nav-item nav-link text-white"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/melfre21" class="nav-item nav-link text-white"><i class="bi bi-github"></i></a>
+      </div>
+  </div>
+	</div>
+</nav>
+
+

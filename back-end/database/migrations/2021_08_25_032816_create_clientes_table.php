@@ -20,6 +20,15 @@ class CreateClientesTable extends Migration
             $table->string('email', 150);
             $table->string('cpf', 11);
             $table->enum('sexo', ['M', 'F']);
+
+            $table->string('telefone', 12)->notNullable();
+            $table->string('cep', 8)->notNullable();
+            $table->string('logradouro', 120)->notNullable();
+            $table->string('numero', 10)->notNullable();
+            $table->string('bairro', 80)->notNullable();
+            $table->string('cidade', 70)->notNullable();
+            $table->string('uf', 2)->notNullable();
+
             $table->timestamps();
         });
     }
