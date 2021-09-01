@@ -9,10 +9,10 @@ export class ListComponent implements OnInit {
 
   constructor() { }
 
-  @Output() pedido = new EventEmitter();
+  // @Output() pedido = new EventEmitter();
 
   ngOnInit(): void {
-    this.pedido.emit('R$100,00');
+    // this.pedido.emit('R$100,00');
   }
 
 }

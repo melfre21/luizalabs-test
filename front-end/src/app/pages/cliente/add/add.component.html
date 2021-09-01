@@ -1,10 +1,21 @@
+<div class="d-flex justify-content-between bd-highlight row mt-5 mb-3 pt-3 bg-light">
+  <div class="bd-highlight pl-3">
+    <h1><i class="bi bi-people pr-2"></i>Clientes</h1>
+  </div>
+  <div class="bd-highlight pr-3">
+    <button mat-button><i class="bi bi-list-ul"></i></button>
+    <button mat-button><i class="bi bi-grid-3x2-gap"></i></button>
+    <button mat-button [routerLink]="['list']" routerLinkActive="router-link-active">Listagem</button>
+  </div>
+</div>
+
 <div class="container-cadastro">
   <div class="row">
       <div class="col-md-12 mx-auto">
           <p class="subtitle-forms">Utilizando Reactive Forms</p>
           <div class="alert alert-info alert-dismissible fade show" role="alert">
               <strong>Importante:</strong> Todos os campos são de preenchimento obrigatórios.
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
           </div>
           <form [formGroup]="formCadastroCliente" (ngSubmit)="onSubmit()">
               <div class="row g-3">
