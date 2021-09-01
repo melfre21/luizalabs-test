@@ -23,7 +23,26 @@ Outras bibliotecas e Api's
 
 ## Instalação do Projeto Back-end(Laravel)
 
-Como foco do projeto é front-end disponibilizo uma API, com os EndPoints no endereço abaixo.
+- Criar uma base de dados MYSQL, Ex: db-luizalabs-test
+- Adicionar as configurar no arquivo .ENV como mostrado nas linhas abaixo:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db-luizalabs-test
+DB_USERNAME=user
+DB_PASSWORD=password
+```
+- No Laravel "rodar" o comando de migração das tabelas e entidades:
+```
+php artisan migrate
+```
+- Logo em seguida "rodar" o comando de inicialização do servidor:
+```
+php artisan serve
+```
+
+Segue abaixo alguns EndPoints.
 
 
 #### Cadastro:
