@@ -6,6 +6,7 @@ import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 import { ClienteComponent } from './cliente.component';
 import { MaterialModule } from 'src/app/shared/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { MaterialModule } from 'src/app/shared/material.module';
   imports: [
     CommonModule,
     MaterialModule,
-    ClienteRoutingModule
+    ClienteRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     ListComponent,

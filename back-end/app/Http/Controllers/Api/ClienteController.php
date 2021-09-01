@@ -13,11 +13,7 @@ class ClienteController extends Controller
     public function index(){
         $clientes = Cliente::all();
 
-        return response()->json([
-            "success"   => true,
-            "message"   => "Listagem de Clientes",
-            "data"      => $clientes
-        ], 200);
+        return response()->json($clientes, 200);
 
     }
 
@@ -25,19 +21,29 @@ class ClienteController extends Controller
         $dataForm = $request->all();
 
         $validator = Validator::make($dataForm, [
-            "codigo"    => "required",
-            "nome"      => "required",
-            "email"     => "required|email",
-            "cpf"       => "required|min:11|max:11",
-            "sexo"      => "required"
+            "codigo"        => "required",
+            "nome"          => "required",
+            "email"         => "required|email",
+            "cpf"           => "required|min:11|max:11",
+            "sexo"          => "required",
+            "senha"         => "required",
+            "telefone"      => "required",
+            "cep"           => "required",
+            "logradouro"    => "required",
+            "numero"        => "required",
+            "bairro"        => "required",
+            "cidade"        => "required",
+            "uf"            => "required",
         ]);
+
+        $dataForm['senha'] = bcrypt($dataForm['senha']);
 
         if( $validator->fails()){
             return $this->withErrors('Erros.', $validator->error);
         }
 
         $cliente = Cliente::create($dataForm);
- 
+
         return response()->json([
             "success" => true,
             "message" => "Cliente criado com sucesso!.",
@@ -47,11 +53,11 @@ class ClienteController extends Controller
 
     public function show($id){
         $cliente = Cliente::find($id);
-   
+
         if (is_null($cliente)) {
             return $this->sendError('Cliente não encontrado.');
         }
-         
+
         return response()->json([
             "success" => true,
             "message" => "Cliente recuperado com sucesso.",
@@ -70,7 +76,7 @@ class ClienteController extends Controller
         $cliente->cpf       = $request->input('cpf');
         $cliente->sexo      = $request->input('sexo');
         $cliente->save();
-    
+
         return response()->json([
             "success" => true,
             "message" => "Cliente atualizado com sucesso.",
@@ -80,7 +86,7 @@ class ClienteController extends Controller
 
     public function destroy(Cliente $cliente){
         $cliente->delete();
-    
+
         return response()->json([
             "success" => true,
             "message" => "Cliente excluido com sucesso.",

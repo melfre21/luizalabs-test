@@ -1,60 +1,26 @@
-<h1>LISTA DE CLIENTES</h1>
-<mat-card class="example-card col-md-2  ">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+<div class="d-flex justify-content-between bd-highlight row mt-5 mb-3 pt-3 bg-light">
+  <div class="bd-highlight pl-3">
+    <h1><i class="bi bi-people pr-2"></i>Clientes</h1>
+  </div>
+  <div class="bd-highlight pr-3">
+    <button mat-button><i class="bi bi-list-ul"></i></button>
+    <button mat-button><i class="bi bi-grid-3x2-gap"></i></button>
+    <button mat-button [routerLink]="['add']" routerLinkActive="router-link-active">Novo</button>
+  </div>
+</div>
 
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
-
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+<div class="row d-flex justify-content-between">
+  <div class="col-3 mb-2" *ngFor="let cliente of clientes">
+    <div class="card">
+      <div class="card-body card-block">
+        <h2 class="card-title">{{cliente.nome}}</h2>
+        <h6 class="card-subtitle mb-2 text-muted">CPF: <strong>{{cliente.cpf}}</strong></h6>
+        <h6 class="card-subtitle mb-2 text-muted">Email: <strong>{{cliente.email}}</strong></h6>
+        <h6 class="card-subtitle mb-2 text-muted">Telefone: <strong>{{cliente.telefone}}</strong></h6>
+        <p class="card-text"></p>
+        <button mat-button [routerLink]="['add']" routerLinkActive="router-link-active" class="card-link">Editar</button>
+        <button mat-button [routerLink]="['add']" routerLinkActive="router-link-active" class="card-link">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
