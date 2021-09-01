@@ -10,6 +10,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/', function () {
+    return 'Bem vindo a api';
+});
+
 // List clientes
 Route::get('clientes', [ClienteController::class, 'index']);
 
@@ -40,3 +44,24 @@ Route::put('produto/{id}', [ProdutoController::class, 'update']);
 
 // Deletar produto
 Route::delete('produto/{id}', [ProdutoController::class,'destroy']);
+
+
+
+// // Route::resource('/users', UserController::class)->only([
+// //     'store'
+// // ]);
+// Route::post('/login', [AuthController::class, 'login']);
+
+// Route::group([
+//     'middleware' => 'api',
+//     'prefix' => 'auth'
+
+// ], function ($router) {
+
+//     // Route::post('/register', [AuthController::class, 'register']);
+//     Route::post('/logout', [AuthController::class, 'logout']);
+//     Route::post('/refresh', [AuthController::class, 'refresh']);
+//     Route::get('/user-profile', [AuthController::class, 'userProfile']);
+
+
+// });

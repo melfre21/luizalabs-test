@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteComponent implements OnInit {
 
+  model!: string;
+
   constructor() { }
+
+  receberPedido(valor:string) {
+    this.model = valor;
+  }
 
   ngOnInit(): void {
   }
