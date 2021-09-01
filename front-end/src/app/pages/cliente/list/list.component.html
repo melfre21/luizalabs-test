@@ -9,20 +9,18 @@
   </div>
 </div>
 
-
 <div class="row d-flex justify-content-between">
-  <div class="card col-3 p-2">
-    <div class="card-body">
-      <h2 class="card-title">Nome Cliente</h2>
-      <h6 class="card-subtitle mb-2 text-muted">CPF: <strong>00.000.000-22</strong></h6>
-      <h6 class="card-subtitle mb-2 text-muted">Email: <strong>francisco@gmail.com</strong></h6>
-      <h6 class="card-subtitle mb-2 text-muted">Telefone: <strong>(86)9992-2311</strong></h6>
-      <p class="card-text"></p>
-      <a href="#" class="card-link">Editar</a>
-      <a href="#" class="card-link">Excluir</a>
+  <div class="col-3 mb-2" *ngFor="let cliente of clientes">
+    <div class="card">
+      <div class="card-body card-block">
+        <h2 class="card-title">{{cliente.nome}}</h2>
+        <h6 class="card-subtitle mb-2 text-muted">CPF: <strong>{{cliente.cpf}}</strong></h6>
+        <h6 class="card-subtitle mb-2 text-muted">Email: <strong>{{cliente.email}}</strong></h6>
+        <h6 class="card-subtitle mb-2 text-muted">Telefone: <strong>{{cliente.telefone}}</strong></h6>
+        <p class="card-text"></p>
+        <button mat-button [routerLink]="['add']" routerLinkActive="router-link-active" class="card-link">Editar</button>
+        <button mat-button [routerLink]="['add']" routerLinkActive="router-link-active" class="card-link">Excluir</button>
+      </div>
     </div>
   </div>
-
-
 </div>
-

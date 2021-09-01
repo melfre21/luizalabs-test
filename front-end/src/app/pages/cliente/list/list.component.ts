@@ -1,4 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
+import { Cliente } from 'src/app/models/cliente.model';
+import { ClienteService } from '../cliente.service';
 
 @Component({
   selector: 'app-list',
@@ -7,12 +11,20 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  clientes!: Cliente[];
 
-  // @Output() pedido = new EventEmitter();
+  constructor(
+    private _service: ClienteService
+  ){ }
 
   ngOnInit(): void {
-    // this.pedido.emit('R$100,00');
+    this.getAllCliente();
+  }
+
+  getAllCliente(){
+    this._service.findAll()
+      .pipe(first())
+      .subscribe(cliente => this.clientes = cliente);
   }
 
 }
