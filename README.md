@@ -46,11 +46,11 @@ DELETE /clientes/{id}
 
 #### Produtos:
 ```
-GET /clientes/
-GET /clientes/{id}
-POST /clientes/
-PUT /clientes/{id}
-DELETE /clientes/{id}
+GET /produtos/
+GET /produtos/{id}
+POST /produtos/
+PUT /produtos/{id}
+DELETE /produtos/{id}
 ```
 
 ## Instalação do Projeto Front-end(Angular v11)
