@@ -11,10 +11,8 @@ use Illuminate\Support\Facades\Validator;
 class ClienteController extends Controller
 {
     public function index(){
-        $clientes = Cliente::all();
-
+        $clientes = Cliente::paginate(15)->toArray();
         return response()->json($clientes, 200);
-
     }
 
     public function store(Request $request){

@@ -9,8 +9,12 @@
   </div>
 </div>
 
-<div class="row d-flex justify-content-between">
-  <div class="col-3 mb-2" *ngFor="let cliente of clientes">
+<div class="row">
+
+  <!-- {{ clientes | json }} -->
+
+<div class="row d-flex">
+  <div class="col-md-3 mb-2" *ngFor="let cliente of clientes">
     <div class="card">
       <div class="card-body card-block">
         <h2 class="card-title">{{cliente.nome}}</h2>
@@ -18,9 +22,10 @@
         <h6 class="card-subtitle mb-2 text-muted">Email: <strong>{{cliente.email}}</strong></h6>
         <h6 class="card-subtitle mb-2 text-muted">Telefone: <strong>{{cliente.telefone}}</strong></h6>
         <p class="card-text"></p>
-        <button mat-button [routerLink]="['add']" routerLinkActive="router-link-active" class="card-link">Editar</button>
-        <button mat-button [routerLink]="['add']" routerLinkActive="router-link-active" class="card-link">Excluir</button>
+        <button mat-flat-button color="primary" [routerLink]="['add']" routerLinkActive="router-link-active" class="card-link">Editar</button>
+        <button mat-flat-button color="warn" routerLinkActive="router-link-active" class="card-link">Excluir</button>
       </div>
     </div>
   </div>
+</div>
 </div>

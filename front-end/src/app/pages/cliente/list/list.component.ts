@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { Cliente } from 'src/app/models/cliente.model';
+import { Cliente, ResponseCliente } from 'src/app/models/cliente.model';
 import { ClienteService } from '../cliente.service';
 
 @Component({
@@ -11,7 +11,8 @@ import { ClienteService } from '../cliente.service';
 })
 export class ListComponent implements OnInit {
 
-  clientes!: Cliente[];
+  cliente!: Cliente[];
+  clientes: Array<any> = new Array();
 
   constructor(
     private _service: ClienteService
@@ -24,7 +25,10 @@ export class ListComponent implements OnInit {
   getAllCliente(){
     this._service.findAll()
       .pipe(first())
-      .subscribe(cliente => this.clientes = cliente);
+      .subscribe((response: any) => {
+        console.log(response);
+        this.clientes =  response.data
+      });
   }
 
 }
